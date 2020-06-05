@@ -1,0 +1,40 @@
+from selenium import webdriver
+
+from selenium.webdriver.common.keys import Keys
+
+from  selenium.webdriver.support.ui import WebDriverWait
+
+import time
+
+driver = webdriver.Chrome('E:\Software\chromedriver')
+
+driver.get("https://www.facebook.com/")
+driver.maximize_window()
+
+fbUsername = 'xxxxxx'
+fbPassword = 'xxxxxx'
+
+emailFieldID        = 'email'
+passFieldID         = 'pass'
+loginButtonXpath    = '//input[@value="Log In"]'
+fbLogoXpath         = '(//a[contains(@href, "logo")])[1]'
+logoutButtonXpath   = "//li[@class='_54ni navSubmenu _6398 _64kz __MenuItem']"
+fbNavLabelXpath     = "//div[contains(@id,'userNavigationLabel')]"
+lastXpath           = "//span[@class='_54nh'][contains(.,'Log Out')]"
+
+emailFieldElement   = WebDriverWait(driver, 5).until(lambda driver: driver.find_element_by_id(emailFieldID))
+passFieldElement    = WebDriverWait(driver, 5).until(lambda driver: driver.find_element_by_id(passFieldID))
+loginButtonElement  = WebDriverWait(driver, 5).until(lambda driver: driver.find_element_by_xpath(loginButtonXpath))
+emailFieldElement.clear()
+emailFieldElement.send_keys(fbUsername)
+passFieldElement.clear()
+passFieldElement.send_keys(fbPassword)
+loginButtonElement.click()
+
+WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath(fbLogoXpath))
+
+# fbNavLabelElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath(fbNavLabelXpath))
+# fbNavLabelElement.click()
+# logoutButtonElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath(logoutButtonXpath))
+# logoutButtonElement.click()
+# WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath(lastXpath))

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</</head>
+
+<body>
+    <div class="container"><img src="{{ url_for('static', filename='SearchEngineLand_1920x1080.png') }}" style="max-width:300px;min-width:fill-available;margin-top:100px;width:300px;max-height:200px;"></div>
+    <div class="container">
+        <form name="search" method="post" action="">
+            <div class="form-group"><select name="Product" class="form-control"><optgroup label="Select From The Following"><option value="1" selected="">Laptop</option><option value="13">Desktop</option><option value="14">Mobile</option></optgroup></select></div>
+            <div class="form-group"><input class="form-control" type="text" style="width:300px;min-width:100px;" placeholder="Enter the product name" name="search_bar"></div>
+            <div class="form-group"><input class="btn btn-primary" type="submit" value="Search"></div>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
